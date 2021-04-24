@@ -1,0 +1,394 @@
+{% extends 'base.html' %}
+{% load static %}
+
+        {% block content%}
+
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %} home {% endblock %}</title>
+    </head>
+
+    <body>
+        <!-- Nav Bar Start -->
+
+        {% if user.is_authenticated %}
+
+        <div class="nav-bar nav-sticky">
+            <div class="container">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            <a class="nav-item nav-link active" href="{% url 'home' %}">
+                                <li>Home</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'instructions' %}">
+                                <li>Instructions</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'vote' %}">
+                                <li>Vote</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'about' %}">
+                                <li>About</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'logout' %}">
+                                <li>Logout</li>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        {% else %}
+        <div class="nav-bar nav-sticky">
+            <div class="container">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+        
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            <a class="nav-item nav-link active" href="{% url 'home' %}">
+                                <li>Home</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'login' %}">
+                                <li>Login</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'instructions' %}">
+                                <li>Instructions</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'about' %}">
+                                <li>About</li>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        {% endif %}
+        <!-- Nav Bar End -->
+
+        <br>
+        <br>
+        <br>
+        
+
+        <!-- uds logo -->
+        <center><img src="{% static 'img/msa_ec_logo.png' %}" height="200px" width="200px"></center>
+
+
+
+<!-- start editing here -->
+
+        <!-- Category Start-->
+        <div class="cat-news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>President</h2>
+                    </div>
+        
+                    {% for candidate in president %}
+        
+                    <div class="col-md-3">
+                        <div class="cn-img">
+                            <img src="/media/{{candidate.profilePic}}" class="img-fluid" alt="Responsive image">
+                            <div class="cn-title">
+                                <a href="/media/{{candidate.manifesto}}" target="_blank">{{ candidate.FirstName }} {{ candidate.LastName }} | view
+                                    manifesto</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    {% endfor%}
+        
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+        
+                    </div>
+                    <div class="col-md-6">
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Category End-->
+
+        <!-- Category Start-->
+        <div class="cat-news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Vice President</h2>
+                    </div>
+
+                    {% for candidate in vicePresident %}
+
+                    <div class="col-md-3">
+                        <div class="cn-img">
+                            <img src="/media/{{candidate.profilePic}}" class="img-fluid" alt="Responsive image">
+                            <div class="cn-title">
+                                <a href="/media/{{candidate.manifesto}}" target="_blank">{{ candidate.FirstName }} {{ candidate.LastName }} | view
+                                    manifesto</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor%}
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                
+                    </div>
+                    <div class="col-md-6">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Category End-->
+
+
+        <!-- Category Start-->
+        <div class="cat-news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Health Officer</h2>
+                    </div>
+        
+                    {% for candidate in healthOfficer %}
+        
+                    <div class="col-md-3">
+                        <div class="cn-img">
+                            <img src="/media/{{candidate.profilePic}}" class="img-fluid" alt="Responsive image">
+                            <div class="cn-title">
+                                <a href="/media/{{candidate.manifesto}}" target="_blank">{{ candidate.FirstName }} {{ candidate.LastName }} | view manifesto</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    {% endfor %}
+        
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+        
+                    </div>
+                    <div class="col-md-6">
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Category End-->
+
+        <!-- Category Start-->
+        <div class="cat-news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Exchange Officer</h2>
+                    </div>
+
+                    {% for candidate in exchangeOfficer %}
+
+                    <div class="col-md-3">
+                        <div class="cn-img">
+                            <img src="/media/{{candidate.profilePic}}" class="img-fluid" alt="Responsive image">
+                            <div class="cn-title">
+                                <a href="/media/{{candidate.manifesto}}" target="_blank">{{ candidate.FirstName }} {{ candidate.LastName }} | view
+                                    manifesto</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+        
+                    </div>
+                    <div class="col-md-6">
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Category End-->
+
+        <!-- Category Start-->
+        <div class="cat-news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Secretary</h2>
+                    </div>
+        
+                    {% for candidate in secretary %}
+                    <div class="col-md-3">
+                        <div class="cn-img">
+                            <img src="/media/{{candidate.profilePic}}" class="img-fluid" alt="Responsive image">
+                            <div class="cn-title">
+                                <a href="/media/{{candidate.manifesto}}" target="_blank">{{ candidate.FirstName }} {{ candidate.LastName }} | view
+                                    manifesto</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    {% endfor %}
+        
+        
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+        
+                    </div>
+                    <div class="col-md-6">
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Category End-->
+
+
+        <!-- Category Start-->
+        <div class="cat-news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Organiser</h2>
+                    </div>
+
+                    {% for candidate in organiser %}
+
+                    <div class="col-md-3">
+                        <div class="cn-img">
+                            <img src="/media/{{candidate.profilePic}}" class="img-fluid" alt="Responsive image">
+                            <div class="cn-title">
+                                <a href="/media/{{candidate.manifesto}}" target="_blank">{{ candidate.FirstName }} {{ candidate.LastName }} | view
+                                    manifesto</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+        
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+        
+                    </div>
+                    <div class="col-md-6">
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+                <!-- Category End-->
+
+
+        <!-- Category Start-->
+        <div class="cat-news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Treasurer</h2>
+                    </div>
+
+                    {% for candidate in treasurer %}
+                    <div class="col-md-3">
+                        <div class="cn-img">
+                            <img src="/media/{{candidate.profilePic}}" class="img-fluid" alt="Responsive image">
+                            <div class="cn-title">
+                                <a href="/media/{{candidate.manifesto}}" target="_blank">{{ candidate.FirstName }} {{ candidate.LastName }} | view
+                                    manifesto</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+        
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                
+                    </div>
+                    <div class="col-md-6">
+                
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Category End-->
+
+        <!-- Category Start-->
+        <div class="cat-news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>PRO</h2>
+                    </div>
+        
+                    {% for candidate in pro %}
+                    <div class="col-md-3">
+                        <div class="cn-img">
+                            <img src="/media/{{candidate.profilePic}}" class="img-fluid" alt="Responsive image">
+                            <div class="cn-title">
+                                <a href="/media/{{candidate.manifesto}}" target="_blank">{{ candidate.FirstName }} {{ candidate.LastName }} | view
+                                    manifesto</a>
+                            </div>
+                        </div>
+                    </div>
+        
+                    {% endfor %}
+        
+                </div>
+        
+                <div class="row">
+                    <div class="col-md-6">
+        
+                    </div>
+                    <div class="col-md-6">
+        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+        
+                    </div>
+                    <div class="col-md-6">
+        
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+        <!-- Category End-->
+
+
+        
+        <!-- Back to Top -->
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+
+
+        {% endblock content %}
+    </body>
+
+

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- <center><h3>UDS MSA</h3></center> -->
+<center><img src="{% static 'img/msa_ec_logo.png' %}" height="200px" width="200px"></center>
+<center><h2><p><i> <u>Results </u></i></p></h2></center>
+
+<br>
+<!--
+<hr>
+<h3>President</h3>
+<div class="row row-cols-4 row-cols-md-3">
+{% for c in president %}
+  <div class="col mb-4">
+    <div class="card" style="width: 14rem;">
+      <img src="{{c.profilePic.url}}" class="card-img-top" alt="..." height="250px" width="100px">
+      <div class="card-body">
+        <h5 class="card-title"><b>Name: </b>{{c.FirstName}} {{c.LastName}}</h5>
+      <p class="card-text"><small class="text-muted"><h5><b>Post: </b>{{c.Category}}</h5></small> </p>     
+      <p class="card-text"><small class="text-muted"><h5><b>Votes: </b>{{ results_pre }}</h5></small> </p>
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+</div>
+
+
+<hr>
+<h3>Secretary</h3>
+<div class="row row-cols-4 row-cols-md-3">
+{% for candidate in secretary %}
+  <div class="col mb-4">
+    <div class="card" style="width: 14rem;">
+      <img src="{{candidate.profilePic.url}}" class="card-img-top" alt="..." height="250px" width="100px">
+      <div class="card-body">
+        <h5 class="card-title"><b>Name: </b>{{candidate.FirstName}} {{candidate.LastName}}</h5>
+      <p class="card-text"><small class="text-muted"><h5><b>Post: </b>{{candidate.Category}}</h5></small> </p>     
+      <p class="card-text"><small class="text-muted"><h5><b>Votes: </b>{{ results_sec }}</h5></small> </p>     
+      </div>
+    </div>
+  </div>
+
+
+{% endfor %}
+</div>
+
+-->
+
+
+
+<p>{{ results_pre }}</p>
+<p>{{ results_vic }}</p>
+<p>{{ results_hea }}</p>
+<p>{{ results_exc }}</p>
+<p>{{ results_org }}</p>
+<p>{{ results_pro }}</p>
+<p>{{ results_tre }}</p>
+<p>{{ results_sec }}</p>
+
+{% endblock content %}

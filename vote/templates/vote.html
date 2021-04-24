@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %} vote {% endblock %}</title>
+    </head>
+    
+    <body>
+        {% block content%}
+        <!-- Nav Bar Start -->
+    
+        {% if user.is_authenticated %}
+    
+        <div class="nav-bar nav-sticky">
+            <div class="container">
+                <nav class="navbar  sticky-top navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            <a class="nav-item nav-link" href="{% url 'home' %}">
+                                <li>Home</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'instructions' %}">
+                                <li>Instruction</li>
+                            </a>
+                            <a class="nav-item nav-link active" href="{% url 'vote' %}">
+                                <li>Vote</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'about' %}">
+                                <li>About</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'logout' %}">
+                                <li>Logout</li>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    
+        {% else %}
+        <div class="nav-bar nav-sticky">
+            <div class="container">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            <a class="nav-item nav-link" href="{% url 'home' %}">
+                                <li>Home</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'login' %}">
+                                <li>Login</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'instructions' %}">
+                                <li>Instruction</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'about' %}">
+                                <li>About</li>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    
+        {% endif %}
+        <!-- Nav Bar End -->
+    
+    
+        <br>
+        <br>
+        <br>
+
+        <!-- uds logo -->
+        <center><img src="{% static 'img/msa_ec_logo.png' %}" height="200px" width="200px"></center>
+
+<div class="cat-news">
+<div class="container">
+
+
+<form action="{% url 'votepoll' %}" method="POST">
+    {% csrf_token %}
+
+    <div class="form-group">
+    <label>Select President: Safwan Yiah</label>
+    <select class="form-control" name="president">
+        <option disabled selected value></option>
+        <option value="yes"> yes </option>
+        <option value="no"> no </option>
+        <option value="abstain"> abstain </option>
+    </select>
+    </div>
+
+    <div class="form-group">
+        <label>Select Your VicePresident</label>
+        <select class="form-control" name="vicePresident">
+            {% for candidate in vicePresident %}
+            <option value="{{candidate.LastName}}">
+                {{candidate.FirstName}} {{candidate.LastName}} </option>
+            {% endfor %}
+            <option value="abstain">abstain</option>
+            <option disabled selected value></option>
+    
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Select Your HealthOfficer</label>
+        <select class="form-control" name="healthOfficer">
+            {% for candidate in healthOfficer %}
+            <option value="{{candidate.LastName}}">
+                {{candidate.FirstName}} {{candidate.LastName}} </option>
+            {% endfor %}
+            <option value="abstain">abstain</option>
+            <option disabled selected value></option>
+    
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label>Select Your ExchangeOfficer</label>
+        <select class="form-control" name="exchangeOfficer">
+            {% for candidate in exchangeOfficer %}
+            <option value="{{candidate.LastName}}">
+                {{candidate.FirstName}} {{candidate.LastName}} </option>
+            {% endfor %}
+            <option value="abstain">abstain</option>
+            <option disabled selected value></option>
+    
+        </select>
+    </div>
+
+    <div class="form-group">
+    <label>Select Your Secretary</label>
+    <select class="form-control" name="secretary">
+        {% for candidate in secretary %}
+        <option value="{{ candidate.LastName }}">
+            {{ candidate.FirstName }} {{ candidate.LastName }} 
+        </option>
+         {% endfor %}
+        <option value="abstain">abstain</option>
+        <option disabled selected value></option>
+
+    </select>
+    </div>
+
+    <div class="form-group">
+     <label>Select Your Organizer</label>
+    <select class="form-control" name="organizer">
+        {% for candidate in organizer %}
+        <option value="{{candidate.LastName}}">
+            {{candidate.FirstName}} {{candidate.LastName}} </option>
+         {% endfor %}
+        <option value="abstain">abstain</option>
+        <option disabled selected value></option>
+
+    </select>
+    </div>
+
+    <div class="form-group">
+    <label>Select Your Treasurer</label>
+    <select class="form-control" name="treasurer">
+        {% for candidate in treasurer %}
+        <option value="{{candidate.LastName}}">
+            {{candidate.FirstName}} {{candidate.LastName}} </option>
+         {% endfor %}
+        <option value="abstain">abstain</option>
+        <option disabled selected value></option>
+
+    </select>
+    </div>
+
+
+
+    <div class="form-group">
+    <label>Select Your PRO</label>
+    <select class="form-control" name="pro">
+        {% for candidate in pro %}
+        <option value="{{candidate.LastName}}">
+            {{candidate.FirstName}} {{candidate.LastName}} </option>
+         {% endfor %}
+        <option value="abstain">abstain</option>
+        <option disabled selected value></option>
+
+    </select>
+    </div>
+
+</div>
+</div>
+
+    <center> 
+        <input class="btn btn-secondary btn-lg" type="submit" value="vote" onclick="return confirm('You cannot edit your votes after submiting! Are you sure of your selections?');"> 
+    </center>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</form>
+
+{% endblock content%}

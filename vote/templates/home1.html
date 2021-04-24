@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% block content%}
+
+<center><h4>UDS MSA</h4></center>
+<center><img src="election/media/msa_ec_logo.png" height="200px" width="200px"></center>
+<center><h2><p><i> <u> Candidates </u></i></p></h2></center>
+
+<hr>
+<h3>President List</h3>
+
+<div class="row row-cols-4 row-cols-md-3">
+{% for candidate in president %}
+  <div class="col mb-4">
+    <div class="card" style="width: 14rem;">
+      <img src="{{candidate.profilePic.url}}" class="card-img-top" alt="..." height="250px" width="100px">
+      <div class="card-body">
+        <h5 class="card-title"><b>Name: </b>{{candidate.FirstName}} {{candidate.LastName}}</h5>
+<!--   not necessary yet   <h5 class="card-title"><b>Reg_No: </b>{{candidate.Reg_No}}</h5> -->
+        <h5 class="card-title"><b>Year Of Study: </b>{{candidate.Year}}</h5>
+      <p class="card-text"><small class="text-muted"><h5><b>Post: </b>{{candidate.Category}}</h5></small> </p>     
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+</div>
+
+
+<hr>
+<h3>Secretary List</h3>
+<div class="row row-cols-1 row-cols-md-3">
+{% for candidate in secretary %}
+  <div class="col mb-4">
+    <div class="card" style="width: 14rem;">
+      <img src="{{candidate.profilePic.url}}" class="card-img-top" alt="..." height="250px" width="100px">
+      <div class="card-body">
+        <h5 class="card-title"><b>Name: </b>{{candidate.FirstName}} {{candidate.LastName}}</h5>
+<!--        <h5 class="card-title"><b>Reg_No: </b>{{candidate.Reg_No}}</h5> -->
+        <h5 class="card-title"><b>Year Of Study: </b>{{candidate.Year}}</h5>
+      <p class="card-text"><small class="text-muted"><h5><b>Post: </b>{{candidate.Category}}</h5></small> </p>
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+</div>
+
+
+<hr>
+<h3>Organizer List</h3>
+<div class="row row-cols-1 row-cols-md-3">
+{% for candidate in organizer %}
+  <div class="col mb-4">
+    <div class="card" style="width: 14rem;">
+      <img src="{{candidate.profilePic.url}}" class="card-img-top" alt="..." height="250px" width="100px">
+      <div class="card-body">
+        <h5 class="card-title"><b>Name: </b>{{candidate.FirstName}} {{candidate.LastName}}</h5>
+<!--        <h5 class="card-title"><b>Reg_No: </b>{{candidate.Reg_No}}</h5> -->
+        <h5 class="card-title"><b>Year Of Study: </b>{{candidate.Year}}</h5>
+      <p class="card-text"><small class="text-muted"><h5><b>Post: </b>{{candidate.Category}}</h5></small> </p>
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+</div>
+
+
+<hr>
+<h3>Treasurer List</h3>
+<div class="row row-cols-1 row-cols-md-3">
+{% for candidate in treasurer %}
+  <div class="col mb-4">
+    <div class="card" style="width: 14rem;">
+      <img src="{{candidate.profilePic.url}}" class="card-img-top" alt="..." height="250px" width="100px">
+      <div class="card-body">
+        <h5 class="card-title"><b>Name: </b>{{candidate.FirstName}} {{candidate.LastName}}</h5>
+<!--        <h5 class="card-title"><b>Reg_No: </b>{{candidate.Reg_No}}</h5> -->
+        <h5 class="card-title"><b>Year Of Study: </b>{{candidate.Year}}</h5>
+      <p class="card-text"><small class="text-muted"><h5><b>Post: </b>{{candidate.Category}}</h5></small> </p>
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+</div>
+
+
+<hr>
+<h3>ExchangeOfficer List</h3>
+<div class="row row-cols-1 row-cols-md-3">
+{% for candidate in exchangeOfficer %}
+  <div class="col mb-4">
+    <div class="card" style="width: 14rem;">
+      <img src="{{candidate.profilePic.url}}" class="card-img-top" alt="..." height="250px" width="100px">
+      <div class="card-body">
+        <h5 class="card-title"><b>Name: </b>{{candidate.FirstName}} {{candidate.LastName}}</h5>
+<!--        <h5 class="card-title"><b>Reg_No: </b>{{candidate.Reg_No}}</h5> -->
+        <h5 class="card-title"><b>Year Of Study: </b>{{candidate.Year}}</h5>
+      <p class="card-text"><small class="text-muted"><h5><b>Post: </b>{{candidate.Category}}</h5></small> </p>
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+</div>
+
+
+<hr>
+<h3>HealthOfficer List</h3>
+<div class="row row-cols-1 row-cols-md-3">
+{% for candidate in healthOfficer %}
+  <div class="col mb-4">
+    <div class="card" style="width: 14rem;">
+      <img src="{{candidate.profilePic.url}}" class="card-img-top" alt="..." height="250px" width="100px">
+      <div class="card-body">
+        <h5 class="card-title"><b>Name: </b>{{candidate.FirstName}} {{candidate.LastName}}</h5>
+<!-- this isnt necessary, yet. <h5 class="card-title"><b>Reg_No: </b>{{candidate.Reg_No}}</h5> -->
+        <h5 class="card-title"><b>Year Of Study: </b>{{candidate.Year}}</h5>
+      <p class="card-text"><small class="text-muted"><h5><b>Post: </b>{{candidate.Category}}</h5></small> </p>
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+</div>
+
+
+<hr>
+<h3>VicePresident List</h3>
+<div class="row row-cols-1 row-cols-md-3">
+{% for candidate in vicePresident %}
+  <div class="col mb-4">
+    <div class="card" style="width: 14rem;">
+      <img src="{{candidate.profilePic.url}}" class="card-img-top" alt="..." height="250px" width="100px">
+      <div class="card-body">
+        <h5 class="card-title"><b>Name: </b>{{candidate.FirstName}} {{candidate.LastName}}</h5>
+<!--        <h5 class="card-title"><b>Reg_No: </b>{{candidate.Reg_No}}</h5> -->
+        <h5 class="card-title"><b>Year Of Study: </b>{{candidate.Year}}</h5>
+      <p class="card-text"><small class="text-muted"><h5><b>Post: </b>{{candidate.Category}}</h5></small> </p>
+      </div>
+    </div>
+  </div>
+  
+{% endfor %}
+</div>
+
+
+<hr>
+<h3>PRO List</h3>
+<div class="row row-cols-1 row-cols-md-3">
+{% for candidate in pro %}
+  <div class="col mb-4">
+    <div class="card" style="width: 14rem;">
+      <img src="{{candidate.profilePic.url}}" class="card-img-top" alt="..." height="250px" width="100px">
+      <div class="card-body">
+        <h5 class="card-title"><b>Name: </b>{{candidate.FirstName}} {{candidate.LastName}}</h5>
+<!--        <h5 class="card-title"><b>Reg_No: </b>{{candidate.Reg_No}}</h5> -->
+        <h5 class="card-title"><b>Year Of Study: </b>{{candidate.Year}}</h5>
+      <p class="card-text"><small class="text-muted"><h5><b>Post: </b>{{candidate.Category}}</h5></small> </p>
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+</div>
+
+{% endblock content%}

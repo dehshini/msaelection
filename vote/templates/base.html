@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>voting system - {% block title %}{% endblock %} </title>
+
+    <!--template stylesheet-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+
+    <!-- CSS Libraries -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/all.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'lib/slick/slick.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'lib/slick/slick-theme.css' %}" rel="stylesheet" type="text/css" />
+
+    <!-- Google Fonts -->
+    <link href="{% static 'lib/slick/fonts/gfont.woff' %}" rel="stylesheet">
+
+
+    <script src="{% static 'js/main.js' %}" ></script>
+    <script src="{% static 'js/slim.js' %}" ></script>
+    <script src="{% static 'js/popper.js' %}" ></script>
+    <script src="{% static 'js/bootstrap.js' %}" ></script>
+</head>
+
+
+<body>
+
+    {% block content%}
+
+    {% endblock content%}
+
+
+</body>
+
+  
+  </div>
+
+</html>

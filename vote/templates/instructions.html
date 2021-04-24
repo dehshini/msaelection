@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %} instructions {% endblock %}</title>
+    </head>
+
+    {% block content %}
+        <!-- Nav Bar Start -->
+        
+        {% if user.is_authenticated %}
+        
+        <div class="nav-bar nav-sticky">
+            <div class="container">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+        
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            <a class="nav-item nav-link " href="{% url 'home' %}">
+                                <li>Home</li>
+                            </a>
+                            <a class="nav-item nav-link active" href="{% url 'instructions' %}">
+                                <li>Instructions</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'vote' %}">
+                                <li>Vote</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'about' %}">
+                                <li>About</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'logout' %}">
+                                <li>Logout</li>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        
+        {% else %}
+        <div class="nav-bar nav-sticky">
+            <div class="container">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand">MENU</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+        
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            <a class="nav-item nav-link " href="{% url 'home' %}">
+                                <li>Home</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'login' %}">
+                                <li>Login</li>
+                            </a>
+                            <a class="nav-item nav-link active" href="{% url 'instructions' %}">
+                                <li>Instructions</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'about' %}">
+                                <li>About</li>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        
+        {% endif %}
+        <!-- Nav Bar End -->
+        
+        <br>
+        <br>
+        <br>
+
+
+        <!-- uds logo -->
+        <center><img src="{% static 'img/msa_ec_logo.png' %}" height="200px" width="200px"></center>
+
+
+        <div class="cat-news">
+            <div class="container">
+                <center>
+                    <h3><p> Voting Instructions </p></h3><br>
+
+                    <p>1. Login To Be recognised as One of our students</p>
+                    <p>2. Check all portfolios and their respective candidates</p>
+                    <p>3. Navigate to vote page</p>
+                    <p>4. Select the leaders you want</p>
+                    <p>5. Click Vote</p>
+                    <p>NB: You cannot vote more than once. You cannot edit your votes after voting.</p>
+                </center>
+            </div>
+        </div>
+
+    {% endblock content%}
