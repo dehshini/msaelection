@@ -325,7 +325,7 @@ button.btn:hover {
     .nav-bar,
     .nav-bar .navbar {
         padding: 3px 0;
-        background: #FF6F61 !important;
+        background: #ae0000 !important;
     }
     
     .nav-bar a.nav-link {
@@ -354,7 +354,7 @@ button.btn:hover {
     padding: 3px 0;
     text-align: center;
     font-size: 14px;
-    background: #FF6F61;
+    background: #ae0000;
     border: 1px solid #ffffff;
     border-radius: 4px;
 }

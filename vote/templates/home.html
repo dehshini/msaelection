@@ -16,7 +16,7 @@
         <div class="nav-bar nav-sticky">
             <div class="container">
                 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                    <a href="#" class="navbar-brand">MENU</a>
+                    <a href="#" class="navbar-brand"></a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -48,11 +48,11 @@
         <div class="nav-bar nav-sticky">
             <div class="container">
                 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                    <a href="#" class="navbar-brand">MENU</a>
+                    <a href="#" class="navbar-brand"></a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-        
+
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
                             <a class="nav-item nav-link active" href="{% url 'home' %}">
@@ -79,7 +79,7 @@
         <br>
         <br>
         <br>
-        
+
 
         <!-- uds logo -->
         <center><img src="{% static 'img/msa_ec_logo.png' %}" height="200px" width="200px"></center>
@@ -95,9 +95,9 @@
                     <div class="col-md-12">
                         <h2>President</h2>
                     </div>
-        
+
                     {% for candidate in president %}
-        
+
                     <div class="col-md-3">
                         <div class="cn-img">
                             <img src="/media/{{candidate.profilePic}}" class="img-fluid" alt="Responsive image">
@@ -107,16 +107,16 @@
                             </div>
                         </div>
                     </div>
-        
+
                     {% endfor%}
-        
+
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-        
+
                     </div>
                     <div class="col-md-6">
-        
+
                     </div>
                 </div>
             </div>
@@ -148,7 +148,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                
+
                     </div>
                     <div class="col-md-6">
 
@@ -166,9 +166,9 @@
                     <div class="col-md-12">
                         <h2>Health Officer</h2>
                     </div>
-        
+
                     {% for candidate in healthOfficer %}
-        
+
                     <div class="col-md-3">
                         <div class="cn-img">
                             <img src="/media/{{candidate.profilePic}}" class="img-fluid" alt="Responsive image">
@@ -177,16 +177,16 @@
                             </div>
                         </div>
                     </div>
-        
+
                     {% endfor %}
-        
+
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-        
+
                     </div>
                     <div class="col-md-6">
-        
+
                     </div>
                 </div>
             </div>
@@ -218,10 +218,10 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-        
+
                     </div>
                     <div class="col-md-6">
-        
+
                     </div>
                 </div>
             </div>
@@ -235,7 +235,7 @@
                     <div class="col-md-12">
                         <h2>Secretary</h2>
                     </div>
-        
+
                     {% for candidate in secretary %}
                     <div class="col-md-3">
                         <div class="cn-img">
@@ -246,17 +246,17 @@
                             </div>
                         </div>
                     </div>
-        
+
                     {% endfor %}
-        
-        
+
+
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-        
+
                     </div>
                     <div class="col-md-6">
-        
+
                     </div>
                 </div>
             </div>
@@ -269,10 +269,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Organiser</h2>
+                        <h2>Organizer</h2>
                     </div>
 
-                    {% for candidate in organiser %}
+                    {% for candidate in organizer %}
 
                     <div class="col-md-3">
                         <div class="cn-img">
@@ -285,16 +285,16 @@
                     </div>
 
                     {% endfor %}
-        
+
                 </div>
 
 
                 <div class="row">
                     <div class="col-md-6">
-        
+
                     </div>
                     <div class="col-md-6">
-        
+
                     </div>
                 </div>
             </div>
@@ -322,14 +322,14 @@
                     </div>
 
                     {% endfor %}
-        
+
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                
+
                     </div>
                     <div class="col-md-6">
-                
+
                     </div>
                 </div>
 
@@ -344,7 +344,7 @@
                     <div class="col-md-12">
                         <h2>PRO</h2>
                     </div>
-        
+
                     {% for candidate in pro %}
                     <div class="col-md-3">
                         <div class="cn-img">
@@ -355,37 +355,48 @@
                             </div>
                         </div>
                     </div>
-        
+
                     {% endfor %}
-        
+
                 </div>
-        
+
                 <div class="row">
                     <div class="col-md-6">
-        
+
                     </div>
                     <div class="col-md-6">
-        
+
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-        
+
                     </div>
                     <div class="col-md-6">
-        
+
                     </div>
                 </div>
-        
+
             </div>
         </div>
         <!-- Category End-->
 
 
-        
-        <!-- Back to Top -->
-        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
+{% if user.is_authenticated %}
+<center>
+    <a class="btn btn-danger btn-lg" href="{% url 'vote' %}">Vote here</a>
+</center>
+{% else %}
+<center>
+    <a class="btn btn-danger btn-lg" href="{% url 'login' %}"> Login </a>
+</center>
+
+{% endif %}
+
+<br>
+<br>
+<br>
 
 
         {% endblock content %}

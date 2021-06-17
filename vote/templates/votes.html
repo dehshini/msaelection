@@ -2,28 +2,131 @@
 {% load static %}
 
 
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %} votes {% endblock %}</title>
+    </head>
 
-{% block content%}
-<center><h3><p> Voter Choices </p></h3></center>
+    <body>
+        {% block content%}
+        <!-- Nav Bar Start -->
 
-{% for choice in vote %}
-<div class="card">
-  <div class="card-header">
-    <h4>Voter Username: {{user.username}}</h4>
-  </div>
-  
-  <div class="card-body">
-    <h5 class="card-title"><p>President: {{choice.President}}</p></h5><br>
-    <h5 class="card-title"><p>Secretary: {{choice.Secretary}}</p></h5><br>
-    <h5 class="card-title"><p>Treasurer: {{choice.Treasurer}}</p></h5><br>
-    <h5 class="card-title"><p>Organizer: {{choice.Organizer}}</p></h5><br>
-    <h5 class="card-title"><p>ExchangeOfficer: {{choice.ExchangeOfficer}}</p></h5><br>
-    <h5 class="card-title"><p>HealthOfficer: {{choice.HealthOfficer}}</p></h5><br>
-    <h5 class="card-title"><p>VicePresident: {{choice.VicePresident}}</p></h5><br>
-    <h5 class="card-title"><p>PRO: {{choice.Pro}}</p></h5><br>
+        {% if user.is_authenticated %}
 
-  </div>
-</div>
-{% endfor %}
+        <div class="nav-bar nav-sticky">
+            <div class="container">
+                <nav class="navbar  sticky-top navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand"></a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            <a class="nav-item nav-link" href="{% url 'home' %}">
+                                <li>Home</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'instructions' %}">
+                                <li>Instruction</li>
+                            </a>
+                            <a class="nav-item nav-link active" href="{% url 'vote' %}">
+                                <li>Vote</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'about' %}">
+                                <li>About</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'logout' %}">
+                                <li>Logout</li>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        {% else %}
+        <div class="nav-bar nav-sticky">
+            <div class="container">
+                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand"></a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto">
+                            <a class="nav-item nav-link" href="{% url 'home' %}">
+                                <li>Home</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'login' %}">
+                                <li>Login</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'instructions' %}">
+                                <li>Instruction</li>
+                            </a>
+                            <a class="nav-item nav-link" href="{% url 'about' %}">
+                                <li>About</li>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        {% endif %}
+        <!-- Nav Bar End -->
+
+        <br>
+        <br>
+        <br>
+
+        <!-- uds logo -->
+        <center><img src="{% static 'img/msa_ec_logo.png' %}" height="200px" width="200px"></center>
+
+
+<center><h3><p> Your Votes</p></h3></center>
+
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-6">
+            <center>
+              <div class="card">
+                <div class="card-header">
+                  <h4>Username: {{ votername }}</h4>
+                </div>
+
+                <div class="card-body">
+                  {% for cat in user_votes %}
+                  <h5 class="card-title">
+                    <p>President: {{ cat.President }}</p>
+                  </h5><br>
+                  <h5 class="card-title">
+                    <p>VicePresident: {{ cat.VicePresident }}</p>
+                  </h5><br>
+                  <h5 class="card-title">
+                    <p>HealthOfficer: {{ cat.HealthOfficer }}</p>
+                  </h5><br>
+                  <h5 class="card-title">
+                    <p>ExchangeOfficer: {{ cat.ExchangeOfficer}}</p>
+                  </h5><br>
+                  <h5 class="card-title">
+                    <p>Secretary: {{ cat.Secretary }}</p>
+                  </h5><br>
+                  <h5 class="card-title">
+                    <p>Treasurer: {{ cat.Treasurer }}</p>
+                  </h5><br>
+                  <h5 class="card-title">
+                    <p>Organizer: {{ cat.Organizer }}</p>
+                  </h5><br>
+                  <h5 class="card-title">
+                    <p>PRO: {{ cat.Pro }}</p>
+                  </h5><br>
+                  {% endfor %}
+
+                </div>
+
+              </div>
+            </center>
+          </div>
+        </div></div>
 
 {% endblock content%}

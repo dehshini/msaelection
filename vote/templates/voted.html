@@ -5,21 +5,21 @@
         <meta charset="utf-8">
         <title>{% block title %} vote {% endblock %}</title>
     </head>
-    
+
     <body>
         {% block content%}
         <!-- Nav Bar Start -->
-    
-        {% if user.is_autenticated %}
-    
+
+        {% if user.is_authenticated %}
+
         <div class="nav-bar nav-sticky">
             <div class="container">
-                <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                    <a href="#" class="navbar-brand">MENU</a>
+                <nav class="navbar  sticky-top navbar-expand-md bg-dark navbar-dark">
+                    <a href="#" class="navbar-brand"></a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-    
+
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
                             <a class="nav-item nav-link" href="{% url 'home' %}">
@@ -42,19 +42,19 @@
                 </nav>
             </div>
         </div>
-    
+
         {% else %}
         <div class="nav-bar nav-sticky">
             <div class="container">
                 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                    <a href="#" class="navbar-brand">MENU</a>
+                    <a href="#" class="navbar-brand"></a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-    
+
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
-                            <a class="nav-item nav-link active" href="{% url 'home' %}">
+                            <a class="nav-item nav-link" href="{% url 'home' %}">
                                 <li>Home</li>
                             </a>
                             <a class="nav-item nav-link" href="{% url 'login' %}">
@@ -71,28 +71,25 @@
                 </nav>
             </div>
         </div>
-    
+
         {% endif %}
         <!-- Nav Bar End -->
-    
+
         <br>
         <br>
         <br>
-    
+
         <!-- uds logo -->
         <center><img src="{% static 'img/msa_ec_logo.png' %}" height="200px" width="200px"></center>
 
 
-<div class="cat-news">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-6">
-            <center><h1>You have voted </h1></center>
+        <div class="cat-news">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <img src="{% static 'img/MSA _thanks.png' %}" height="202px" width="300px">
+                </div>
+                <br>
+                <center><a class="btn btn-danger btn-lg" href="{% url 'votes' %}">View your Votes</a></center>
             </div>
         </div>
-        <div class="row d-flex justify-content-center">
-            <img src="{% static 'img/voted5.png' %}" >
-        </div>        
-    </div>
-</div>        
-{% endblock content%}
+        {% endblock content%}

@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@h)yj!$h51a$fa&h8tno(3zqqg$0gr&@ez=@wn-rq@!pqs#f=z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['dehshini.pythonanywhere.com', 'vote.udsmsa.org']
 
 
 # Application definition
@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'msa.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(BASE_DIR / 'db.sqlite3'),
     }
 }
 

@@ -8,6 +8,10 @@ from django.contrib import messages
 from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponseRedirect
 from django.db.models import Count
+from django.http import Http404
+from django.contrib.auth.hashers import make_password
+import csv, os, io
+from msa import settings
 
 
 # Create your views here.
@@ -63,17 +67,25 @@ class LogoutView(LogoutView):
 
 @login_required()
 def VoteView(request):
+    return render(request, 'pollclosed.html', {})
+    """
     if Vote.objects.filter(User_id=request.user.id).exists():
-        return render(request, 'voted.html')
+        votername = request.user
+        user_votes = Vote.objects.filter(User_id=request.user).values()
+        context = {
+            'votername': votername,
+            'user_votes': user_votes,
+        }
+        return render(request, 'voted.html', context)
     else:
         president = Candidate.objects.filter(Category=2)
         secretary = Candidate.objects.filter(Category=1)
-        organizer = Candidate.objects.filter(Category=5)
-        treasurer = Candidate.objects.filter(Category=8)
-        exchangeOfficer = Candidate.objects.filter(Category=7)
-        healthOfficer = Candidate.objects.filter(Category=6)
+        organizer = Candidate.objects.filter(Category=7)
+        treasurer = Candidate.objects.filter(Category=4)
+        exchangeOfficer = Candidate.objects.filter(Category=6)
+        healthOfficer = Candidate.objects.filter(Category=5)
         vicePresident = Candidate.objects.filter(Category=3)
-        pro = Candidate.objects.filter(Category=9)
+        pro = Candidate.objects.filter(Category=8)
 
         context = {
             'president': president,
@@ -87,13 +99,13 @@ def VoteView(request):
         }
 
         return render(request, 'vote.html', context)
-
+    """
 
 @login_required()
 def Votepoll(request):
     try:
-        username = request.user.id
-        user = User.objects.get(id=username)
+        username = request.user
+        user = User.objects.get(id=username.id)
         pre = request.POST.get('president')
         sec = request.POST.get('secretary')
         org = request.POST.get('organizer')
@@ -102,8 +114,7 @@ def Votepoll(request):
         hea = request.POST.get('healthOfficer')
         vic = request.POST.get('vicePresident')
         pro = request.POST.get('pro')
-        Vote.objects.create(User=user, President=pre, Secretary=sec, Organizer=org, Treasurer=tre,
-                            ExchangeOfficer=exc, HealthOfficer=hea, VicePresident=vic, Pro=pro, )
+        Vote.objects.create(User=user, President=pre, Secretary=sec, Organizer=org, Treasurer=tre, ExchangeOfficer=exc, HealthOfficer=hea, VicePresident=vic, Pro=pro,)
     except:
         return render(request, 'failed.html', {})
     return HttpResponseRedirect('voted')
@@ -112,10 +123,17 @@ def Votepoll(request):
 #request not working
 @login_required()
 def VotesView(request):
-    context = {
+    votername = request.user
+    user_votes = Vote.objects.filter(User_id=request.user).values()
 
+    context = {
+        'votername' : votername,
+        'user_votes' : user_votes,
     }
-    return render(request, 'voted.html', context)
+    return render(request, 'votes.html', context)
+
+def VotedView(request):
+    return render(request, 'voted.html', {})
 
 
 def InstructionsView(request):
@@ -159,6 +177,7 @@ def ResultsView(request):
     results_tre = Vote.objects.values('Treasurer').annotate(Count('Treasurer'))
 
     context = {
+        'total_votes': total_votes,
         'results_pre': results_pre,
         'results_sec': results_sec,
         'results_tre': results_tre,
@@ -191,3 +210,17 @@ def ResultsView(request):
  #   votes = cat.votes_set.select_related
 
     return render(request, 'results.html', context)
+
+
+def User_upload(request):
+    with open(os.path.join(settings.BASE_DIR, 'msa_voterlist1.csv')) as f:
+        reader = csv.reader(f)
+        for row in reader:
+            user, created = User.objects.get_or_create(
+                username=str(row[0]),
+                password=make_password(row[2]),
+            )
+    userlist = User.objects.all()
+
+    context = {}
+    return render(request, "user_upload.html", context)

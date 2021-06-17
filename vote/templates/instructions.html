@@ -8,17 +8,17 @@
 
     {% block content %}
         <!-- Nav Bar Start -->
-        
+
         {% if user.is_authenticated %}
-        
+
         <div class="nav-bar nav-sticky">
             <div class="container">
                 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                    <a href="#" class="navbar-brand">MENU</a>
+                    <a href="#" class="navbar-brand"></a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-        
+
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
                             <a class="nav-item nav-link " href="{% url 'home' %}">
@@ -41,16 +41,16 @@
                 </nav>
             </div>
         </div>
-        
+
         {% else %}
         <div class="nav-bar nav-sticky">
             <div class="container">
                 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                    <a href="#" class="navbar-brand">MENU</a>
+                    <a href="#" class="navbar-brand"></a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-        
+
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
                             <a class="nav-item nav-link " href="{% url 'home' %}">
@@ -70,10 +70,10 @@
                 </nav>
             </div>
         </div>
-        
+
         {% endif %}
         <!-- Nav Bar End -->
-        
+
         <br>
         <br>
         <br>
@@ -85,16 +85,14 @@
 
         <div class="cat-news">
             <div class="container">
-                <center>
-                    <h3><p> Voting Instructions </p></h3><br>
+                <h3><p> Voting Instructions </p></h3><br>
 
-                    <p>1. Login To Be recognised as One of our students</p>
-                    <p>2. Check all portfolios and their respective candidates</p>
-                    <p>3. Navigate to vote page</p>
-                    <p>4. Select the leaders you want</p>
-                    <p>5. Click Vote</p>
-                    <p>NB: You cannot vote more than once. You cannot edit your votes after voting.</p>
-                </center>
+                <p>1. Login to be recognised as one of our students</p>
+                <p>2. Check all portfolios and their respective candidates</p>
+                <p>3. Navigate to vote page</p>
+                <p>4. Make your selections for each portfolio. You can choose "abstain" as a selection.</p>
+                <p>5. Click Vote</p>
+                <p>NB: You cannot vote more than once. You cannot edit your votes after voting.</p>
             </div>
         </div>
 
