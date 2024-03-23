@@ -81,7 +81,7 @@
         <br>
 
         <!-- uds logo -->
-        <center><img src="{% static 'img/msa_ec_logo.png' %}" height="200px" width="200px"></center>
+   <!--     <center><img src="{% static 'img/Midwife.JPG' %}" height="200px" width="200px"></center> -->
 
 <div class="cat-news">
 <div class="container">
@@ -90,19 +90,17 @@
 <form action="{% url 'votepoll' %}" method="POST">
     {% csrf_token %}
 
-<!--
     <div class="form-group">
-    <label>Select Your President</label>
+    <label>Vote Nathaniel Yenpang Kassan as President?</label>
     <select class="form-control" name="president">
         <option disabled selected value></option>
-        <option value="yes"> yes </option>
-        <option value="no"> no </option>
-        <option value="abstain"> abstain </option>
+        <option value="yes"> Yes </option>
+        <option value="no"> No </option>
+        <option value="abstain"> Abstain </option>
     </select>
     </div>
 
--->
-
+<!--
     <div class="form-group">
         <label>Select Your President</label>
         <select class="form-control" name="president">
@@ -115,6 +113,7 @@
 
         </select>
     </div>
+-->
 
 
 
@@ -126,11 +125,12 @@
             <option value="{{candidate.LastName}}">
                 {{candidate.FirstName}} {{candidate.LastName}} </option>
             {% endfor %}
-            <option value="abstain">abstain</option>
+            <option value="abstain">Abstain</option>
 
         </select>
     </div>
 
+<!--
     <div class="form-group">
         <label>Select Your HealthOfficer</label>
         <select class="form-control" name="healthOfficer">
@@ -143,7 +143,21 @@
 
         </select>
     </div>
+-->
 
+    <div class="form-group">
+    <label>Vote Collins Dapaah as Health Officer? </label>
+    <select class="form-control" name="healthOfficer">
+        <option disabled selected value></option>
+        <option value="yes"> Yes </option>
+        <option value="no"> No </option>
+        <option value="abstain"> Abstain </option>
+    </select>
+    </div>
+
+
+
+<!--
     <div class="form-group">
         <label>Select Your ExchangeOfficer</label>
         <select class="form-control" name="exchangeOfficer">
@@ -156,8 +170,20 @@
 
         </select>
     </div>
+-->
 
     <div class="form-group">
+    <label>Vote Stanislaus Sumdingya Atiah as Exchange Officer ? </label>
+    <select class="form-control" name="exchangeOfficer">
+        <option disabled selected value></option>
+        <option value="yes"> Yes </option>
+        <option value="no"> No </option>
+        <option value="abstain"> Abstain </option>
+    </select>
+    </div>
+
+
+<!--    <div class="form-group">
     <label>Select Your Secretary</label>
     <select class="form-control" name="secretary">
         <option disabled selected value></option>
@@ -170,19 +196,33 @@
 
     </select>
     </div>
+-->
 
     <div class="form-group">
-     <label>Bingle Mansur as Organizer</label>
-    <select class="form-control" name="organizer">
+    <label>Vote Nantogma Hajara Neena as Secretary? </label>
+    <select class="form-control" name="secretary">
         <option disabled selected value></option>
-        <option value="yes"> yes </option>
-        <option value="no"> no </option>
-        <option value="abstain"> abstain </option>
+        <option value="yes"> Yes </option>
+        <option value="no"> No </option>
+        <option value="abstain"> Abstain </option>
     </select>
     </div>
 
+
+
     <div class="form-group">
-    <label>Louisa Mwinikumo as Treasurer </label>
+     <label>Vote Samuel Awinongiti Issifu as Organizer ?</label>
+    <select class="form-control" name="organizer">
+        <option disabled selected value></option>
+        <option value="yes"> Yes </option>
+        <option value="no"> No </option>
+        <option value="abstain"> Abstain </option>
+    </select>
+    </div>
+
+<!--
+    <div class="form-group">
+    <label>Vote steph curry as Treasurer? </label>
     <select class="form-control" name="treasurer">
         <option disabled selected value></option>
         <option value="yes"> yes </option>
@@ -190,8 +230,34 @@
         <option value="abstain"> abstain </option>
     </select>
     </div>
+-->
+
 
     <div class="form-group">
+        <label>Select Your Treasurer</label>
+        <select class="form-control" name="treasurer">
+            <option disabled selected value></option>
+            {% for candidate in treasurer %}
+            <option value="{{candidate.LastName}}">
+                {{candidate.FirstName}} {{candidate.LastName}} </option>
+            {% endfor %}
+            <option value="abstain">Abstain</option>
+
+        </select>
+    </div>
+
+
+    <div class="form-group">
+    <label>Vote Jacob Ngmenlanaa Dabuo as PRO ? </label>
+    <select class="form-control" name="pro">
+        <option disabled selected value></option>
+        <option value="yes"> Yes </option>
+        <option value="no"> No </option>
+        <option value="abstain"> Abstain </option>
+    </select>
+    </div>
+
+<!--    <div class="form-group">
     <label>Select Your PRO</label>
     <select class="form-control" name="pro">
         <option disabled selected value></option>
@@ -204,14 +270,14 @@
 
     </select>
     </div>
-
+-->
 
 
 </div>
 </div>
 
     <center>
-        <input class="btn btn-danger btn-lg" type="submit" value="vote" onclick="return confirm('You cannot edit your votes after submiting! Are you sure of your selections?');">
+        <input class="btn btn-dark btn-lg" type="submit" value="vote" onclick="return confirm('You cannot edit your votes after submiting! Are you sure of your selections?');">
     </center>
 
     <br>

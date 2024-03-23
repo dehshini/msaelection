@@ -14,7 +14,7 @@ class Category(models.Model):
 
 
 class Candidate(models.Model):
-    year = (('pbl1', 'pbl1'), ('pbl1B', 'pbl1B'), ('pbl2', 'pbl2'), ('pbl3', 'pbl3'), ('pbl3B', 'pbl3B'), ('pbl4', 'pbl4'), ('pbl5', 'pbl5'), ('pbl6', 'pbl6'))
+    year = (('pbl1A', 'pbl1A'), ('pbl1B', 'pbl1B'), ('pbl2A', 'pbl2A'), ('pbl2B', 'pbl2B'), ('pbl3A', 'pbl3A'), ('pbl3B', 'pbl3B'), ('pbl4A', 'pbl4A'), ('pbl4B', 'pbl4B'), ('pbl5A', 'pbl5A'), ('pbl5B', 'pbl5B'), ('pbl6A', 'pbl6A'), ('pbl6B', 'pbl6B'))
 #    category=(('President', 'President'), ('Secretary','Secretary'), ('Organizer','Organizer'), ('Treasurer','Treasurer'), ('VicePresident','VicePresident'), ('HealthOfficer', 'HealthOfficer'), ('ExchangeOfficer', 'ExchangeOfficer'))
     SEX = (('m', 'Male'), ('f', 'Female'))
     FirstName = models.CharField(max_length=50, blank=True)

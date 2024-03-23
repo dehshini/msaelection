@@ -81,8 +81,11 @@
       <br>
 
       <!-- uds logo -->
-      <center><img src="{% static 'img/msa_ec_logo.png' %}" height="200px" width="200px"></center>
+  <!--    <center><img src="{% static 'img/Midwife.JPG' %}" height="200px" width="200px"></center> -->
 
+<br>
+<br>
+<br>
 
 <center>
 <form method="post" >
@@ -90,7 +93,10 @@
   <div class="form-group">
    {{form.as_p}}
   </div>
-  <button type="submit" class="btn btn-danger-md">Login</button>
+  <button type="submit" class="btn btn-dark btn-lg">Login</button>
+  <br />
+  <br />
+ <!-- <a href="{% url 'password_reset' %}" role="button" class="btn btn-outline btn-sm" >Reset Password</a> -->
 </form>
 </center>
 {% endblock content%}

@@ -1,16 +1,16 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from .forms import RegisterForm, UserTestForm
+from .forms import RegisterForm #, UserTestForm
 from django.contrib.auth.decorators import login_required
 from .models import Candidate, Vote
-from django.contrib import messages
+#from django.contrib import messages
 from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponseRedirect
 from django.db.models import Count
-from django.http import Http404
+#from django.http import Http404
 from django.contrib.auth.hashers import make_password
-import csv, os, io
+import csv, os #, io
 from msa import settings
 
 
@@ -34,6 +34,9 @@ def HomeView(request):
         'vicePresident': vicePresident,
         'pro': pro,
     }
+#    return render(request, 'home.html', context)
+#    context = {
+#    }
     return render(request, 'home.html', context)
 
 
@@ -57,7 +60,6 @@ class LoginView(LoginView):
     def get_success_url(self):
         return reverse('home')
 
-
 class LogoutView(LogoutView):
     template_name = 'logout.html'
 
@@ -68,10 +70,11 @@ class LogoutView(LogoutView):
 @login_required()
 def VoteView(request):
     return render(request, 'pollclosed.html', {})
-    """
-    if Vote.objects.filter(User_id=request.user.id).exists():
+
+"""    if Vote.objects.filter(User_id=request.user.id).exists():
         votername = request.user
         user_votes = Vote.objects.filter(User_id=request.user).values()
+       # user_votes = Vote.objects.filter(User_id=request.user).values()
         context = {
             'votername': votername,
             'user_votes': user_votes,
@@ -89,7 +92,6 @@ def VoteView(request):
 
         context = {
             'president': president,
-            'secretary': secretary,
             'organizer': organizer,
             'treasurer': treasurer,
             'exchangeOfficer': exchangeOfficer,
@@ -98,8 +100,9 @@ def VoteView(request):
             'pro': pro,
         }
 
-        return render(request, 'vote.html', context)
-    """
+        return render(request, 'vote.html', context) """
+
+
 
 @login_required()
 def Votepoll(request):
@@ -212,15 +215,37 @@ def ResultsView(request):
     return render(request, 'results.html', context)
 
 
-def User_upload(request):
-    with open(os.path.join(settings.BASE_DIR, 'msa_voterlist1.csv')) as f:
-        reader = csv.reader(f)
-        for row in reader:
-            user, created = User.objects.get_or_create(
-                username=str(row[0]),
-                password=make_password(row[2]),
-            )
-    userlist = User.objects.all()
+def Upload_users(request):
+    with open(os.path.join(settings.BASE_DIR, 'p1.csv'), 'r') as f:
+        csvf = csv.reader(f)
+        data = []
+        for row in csvf:
+            username=row[0]
+            password=make_password(row[1], None, 'md5')
+            #email=row[2]
+            #user=User(username=username, email=email, password=password)
+            user=User(username=username, password=password)
+            data.append(user)
+        User.objects.bulk_create(data)
 
     context = {}
-    return render(request, "user_upload.html", context)
+    return render(request, "upload_users.html", context)
+
+
+#def Upload_users(request):
+#    with open(os.path.join(settings.BASE_DIR, 'p1.csv'), 'r') as f:
+#        csvf = csv.reader(f)
+#        data = []
+#        for row in csvf:
+#            username=row[0]
+#            password=make_password(row[1], None, 'md5')
+            #email=row[2]
+            #user=User(username=username, email=email, password=password)
+            #user=User(username=username, password=password)
+            #data.append(user)
+#            m = User(username=username, password=password)
+#            m.save()
+#        User.objects.bulk_create(data)
+
+#    context = {}
+#    return render(request, "upload_users.html", context)

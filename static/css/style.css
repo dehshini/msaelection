@@ -108,7 +108,7 @@ h6 {
 }
 
 button.btn {
-    color: #ffffff;
+    color: #0e7608;
     background: #000000;
     border: 1px solid #000000;
 }
@@ -256,7 +256,7 @@ button.btn:hover {
         text-align: center;
         margin-bottom: 15px;
     }
-    
+
     .brand .b-search {
         margin-bottom: 0;
     }
@@ -268,6 +268,7 @@ button.btn:hover {
 /**********************************/
 .nav-bar {
     position: relative;
+    background-color: #000000 !important;
 }
 
 .nav-bar.nav-sticky {
@@ -281,6 +282,7 @@ button.btn:hover {
 .nav-bar .navbar {
     height: 100%;
     padding: 0;
+    background-color: #000000;
 }
 
 .navbar-dark .navbar-nav .nav-link,
@@ -288,7 +290,7 @@ button.btn:hover {
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
     padding: 10px 10px 8px 10px;
-    color: #ffffff;
+    color: #0e7608;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover,
@@ -296,50 +298,55 @@ button.btn:hover {
     border-bottom: 2px solid #000000;
     transition: none;
 }
+/*color changed from #000000 to that*/
 
 .nav-bar .dropdown-menu {
     margin-top: 0;
     border: 0;
     border-radius: 0;
-    background: #f8f9fa;
+    background: #000000;
 }
 
+/*
 @media (min-width: 768px) {
     .nav-bar,
     .nav-bar .navbar {
-        background: #ae0000 !important;
+        background: #0e7608 !important;
     }
-    
+
     .nav-bar .navbar-brand {
         display: none;
     }
-    
+
     .nav-bar a.nav-link {
         padding: 8px 15px;
         font-size: 15px;
         text-transform: uppercase;
     }
 }
+*/
 
-@media (max-width: 768px) {   
+/*
+@media (max-width: 768px) {
     .nav-bar,
     .nav-bar .navbar {
         padding: 3px 0;
-        background: #ae0000 !important;
+        background: #0e7608 !important;
     }
-    
+
     .nav-bar a.nav-link {
         padding: 5px;
     }
-    
+
     .nav-bar .dropdown-menu {
         box-shadow: none;
     }
-    
+
     .nav-bar .social {
         display: none;
     }
 }
+*/
 
 .nav-bar .social {
     font-size: 0;
@@ -354,7 +361,7 @@ button.btn:hover {
     padding: 3px 0;
     text-align: center;
     font-size: 14px;
-    background: #ae0000;
+    background: #0e7608;
     border: 1px solid #ffffff;
     border-radius: 4px;
 }
@@ -398,9 +405,9 @@ button.btn:hover {
 
 .top-news .tn-title {
     position: absolute;
-    top: 0; 
+    top: 0;
     right: 0;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
     padding: 15px 10px 15px 20px;
     background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
@@ -519,9 +526,9 @@ button.btn:hover {
 
 .cat-news .cn-title {
     position: absolute;
-    top: 0; 
+    top: 0;
     right: 0;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
     padding: 15px 10px 15px 20px;
     background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
@@ -676,9 +683,9 @@ button.btn:hover {
 
 .main-news .mn-title {
     position: absolute;
-    top: 0; 
+    top: 0;
     right: 0;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
     padding: 15px 10px 15px 20px;
     background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
@@ -717,11 +724,11 @@ button.btn:hover {
 }
 
 .main-news .mn-list ul li {
-    margin: 0 0 12px 22px; 
+    margin: 0 0 12px 22px;
 }
 
 .main-news .mn-list ul li:last-child {
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
 .main-news .mn-list ul li a {
@@ -826,9 +833,9 @@ button.btn:hover {
 
 .single-news .sn-slider .sn-title {
     position: absolute;
-    top: 0; 
+    top: 0;
     right: 0;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
     padding: 15px 10px 15px 20px;
     background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
@@ -1015,11 +1022,11 @@ button.btn:hover {
 }
 
 .sidebar .category ul li {
-    margin: 0 0 12px 22px; 
+    margin: 0 0 12px 22px;
 }
 
 .sidebar .category ul li:last-child {
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
 .sidebar .category ul li a {
@@ -1174,11 +1181,11 @@ button.btn:hover {
 }
 
 .footer .footer-widget ul li {
-    margin-bottom: 12px; 
+    margin-bottom: 12px;
 }
 
 .footer .footer-widget ul li:last-child {
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
 .footer .footer-widget ul li a {
@@ -1357,6 +1364,6 @@ button.btn:hover {
 @media (max-width: 768.98px) {
     .footer-bottom .copyright,
     .footer-bottom .template-by {
-        text-align: center; 
-    } 
+        text-align: center;
+    }
 }

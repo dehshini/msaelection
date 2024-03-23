@@ -82,7 +82,7 @@
 
 
         <!-- uds logo -->
-        <center><img src="{% static 'img/msa_ec_logo.png' %}" height="200px" width="200px"></center>
+   <!--     <center><img src="{% static 'img/Midwife.JPG' %}" height="200px" width="200px"></center> -->
 
 
 
@@ -385,11 +385,11 @@
 
 {% if user.is_authenticated %}
 <center>
-    <a class="btn btn-danger btn-lg" href="{% url 'vote' %}">Vote here</a>
+    <a class="btn btn-dark btn-lg" href="{% url 'vote' %}">Vote here</a>
 </center>
 {% else %}
 <center>
-    <a class="btn btn-danger btn-lg" href="{% url 'login' %}"> Login </a>
+    <a class="btn btn-dark btn-lg" href="{% url 'login' %}"> Login </a>
 </center>
 
 {% endif %}
